@@ -328,6 +328,73 @@ document.write(`
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">short_results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../results/tables/random_search_scores.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">classification_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../results/tables/class_report.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">missing_percentage</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../results/tables/calculate_missing_percentage.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">:</span><span class="s1">&#39;Feature&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">:</span><span class="s1">&#39;Percent NaN&#39;</span><span class="p">})</span>
+
+<span class="nn">File ~\miniconda3\envs\522\Lib\site-packages\pandas\io\parsers\readers.py:948,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">935</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">937</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">946</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">948</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~\miniconda3\envs\522\Lib\site-packages\pandas\io\parsers\readers.py:611,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">610</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">611</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">613</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">614</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~\miniconda3\envs\522\Lib\site-packages\pandas\io\parsers\readers.py:1448,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1445</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1447</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1448</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~\miniconda3\envs\522\Lib\site-packages\pandas\io\parsers\readers.py:1705,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1703</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1704</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1705</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1706</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1707</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1708</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1709</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1710</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1711</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1712</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1713</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1714</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1715</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1716</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File ~\miniconda3\envs\522\Lib\site-packages\pandas\io\common.py:863,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">863</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">865</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">866</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../results/tables/random_search_scores.csv&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
@@ -336,7 +403,7 @@ document.write(`
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>The popular novel series <em>Game of Thrones</em> by George R. R. Martin takes place in a fictional world inspired by medeival Europe. Warfare and violence are central to the plot, leading to frequent casualties among the expansive cast of characters. Exactly which characters are fated to die before the end of the series has become a topic of heated speculation.</p>
-<p>In this analysis we try to predict whether a character will come to grief before the end of the series based on that character’s attributes. We consider a data set created by Data Society available through data.world, which comprises a comprehensive list of characters appearing in the series. For each character there is a number of attributes, such as whether the character is noble, whether they appeared in a given book in the series, whether a relation of theirs is already dead, and finally whether or not the character is still alive at the end.</p>
+<p>In this analysis we try to predict whether a character will come to grief before the end of the series based on that character’s attributes. We consider a data set created by Data Society available through data.world <span id="id1">[<a class="reference internal" href="#id6" title="Data Society. Requests: game of thrones. https://data.world/data-society/game-of-thrones, 2016.">Data Society, 2016</a>]</span>, which comprises a comprehensive list of characters appearing in the series. For each character there is a number of attributes, such as whether the character is noble, whether they appeared in a given book in the series, whether a relation of theirs is already dead, and finally whether or not the character is still alive at the end.</p>
 </section>
 <section id="methods-and-results">
 <h2>Methods and Results<a class="headerlink" href="#methods-and-results" title="Permalink to this heading">#</a></h2>
@@ -520,14 +587,23 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>We created a heatmap to illustrate the correlation of each feature with <strong>isAlive</strong>. None of the correlations are particularly strong, but they seem to make sense. There is a notable positive correlation with whether the character is alive in book 4, which makes sense given that a character has no chance of being alive at the end of the series if they aren’t still alive at book 4. There are also notable negative correlations with the character’s popularity and the number of dead realtions the character has, suggesting that popular characters whose families are already depleted tend to survive in the story.</p>
-<figure class="align-default" id="pr-curve">
-<a class="reference internal image-reference" href="_images/correlation_heatmap.png"><img alt="_images/correlation_heatmap.png" src="_images/correlation_heatmap.png" style="height: 500px;" /></a>
+<p><strong>Features descriptions</strong> <br />
+Among those features we picked for further analysis, some are easily understood by the feature names while some others might be hard to read and understand, so descriptions of these features are provided below.</p>
+<p>Culture: Social group to which a character belongs <br />
+House: House to which a character belongs <br />
+book1,book2,book3,book4,book5: Whether or not the character is mentioned in the book <br />
+numDeadRelations: Number of dead characters to whom a character is related <br />
+Popularity: popularity score calculated from the number of internal incoming and outgoing
+links to the characters page in the <a class="reference external" href="http://awoiaf.westeros.org">http://awoiaf.westeros.org</a> wiki <br />
+Target:whether or not the character is alive \</p>
+<p>Based on the selected features, we created a heatmap <span id="id2">[<a class="reference internal" href="#id7" title="Joel Östblom. Dsci531 course notes. https://pages.github.ubc.ca/MDS-2023-24/DSCI_531_viz-1_students/lectures/4-eda.html, 2023.">Östblom, 2023</a>]</span> to illustrate the correlation of each feature with <strong>isAlive</strong>. None of the correlations, in <a class="reference internal" href="#correlation-map"><span class="std std-numref">Figure 1</span></a>, are particularly strong, but they seem to make sense. There is a notable positive correlation with whether the character is alive in book 4, which makes sense given that a character has no chance of being alive at the end of the series if they aren’t still alive at book 4. There are also notable negative correlations with the character’s popularity and the number of dead realtions the character has, suggesting that popular characters whose families are already depleted tend to survive in the story.</p>
+<figure class="align-default" id="correlation-map">
+<a class="reference internal image-reference" href="../results/figures/correlation_heatmap.png"><img alt="../results/figures/correlation_heatmap.png" src="../results/figures/correlation_heatmap.png" style="height: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Correlation heatmap</span><a class="headerlink" href="#pr-curve" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Correlation heatmap for all features in processed data</span><a class="headerlink" href="#correlation-map" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Using this cleaned data set, we then constructed a column transformer to prepare the data for machine learning purposes. We tried a selection of different machine learning models: dummy, k-NN, SVM, and logistic regression. We found that the logistic regression model performed the best based on f1 score, with <strong>test_f1</strong> of 0.427, and so undertook randomized hyper-parameter optimization to fine-tune that model.</p>
+<p>Using this cleaned data set, we then constructed a column transformer to prepare the data for machine learning purposes. We tried a selection of different machine learning models: dummy, k-NN, SVM, and logistic regression <span id="id3">[<a class="reference internal" href="#id8" title="Varada Kolhatkar. Dsci571 course notes. https://pages.github.ubc.ca/MDS-2023-24/DSCI_571_sup-learn-1_students/lectures/00_motivation-course-information.html, 2023.">Kolhatkar, 2023</a>]</span>. We found that the logistic regression model performed the best based on f1 score, with <strong>test_f1</strong> of 0.427, and so undertook randomized hyper-parameter optimization <span id="id4">[<a class="reference internal" href="#id9" title="Joel Östblom. Dsci573 course notes. https://pages.github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/README.html, 2023.">Östblom, 2023</a>]</span> to fine-tune that model.</p>
 <p>The results of a randomized grid search with cross validation is shown below.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -674,19 +750,19 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<figure class="align-default" id="id1">
+<figure class="align-default" id="pr-curve">
 <a class="reference internal image-reference" href="_images/pr_curve.png"><img alt="_images/pr_curve.png" src="_images/pr_curve.png" style="height: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Precision Recall Curve</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Precision Recall Curve for the best model</span><a class="headerlink" href="#pr-curve" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="roc-curve">
 <a class="reference internal image-reference" href="_images/roc_curve.png"><img alt="_images/roc_curve.png" src="_images/roc_curve.png" style="height: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">RoC Curve</span><a class="headerlink" href="#roc-curve" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">RoC Curve for the best model</span><a class="headerlink" href="#roc-curve" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>For both classes (0 = character survives, 1 = character dies), the model’s recall is comparable. However for class 1 the model’s precision is much lower, indicating that it is a bit too quick to predict the demise of a character. This could perhaps be improved in future by altering the class weights.</p>
+<p>For both classes (0 = character survives, 1 = character dies), the model’s recall is comparable, show in <a class="reference internal" href="#pr-curve"><span class="std std-numref">Figure 2</span></a> and <a class="reference internal" href="#roc-curve"><span class="std std-numref">Figure 3</span></a>. However for class 1 the model’s precision is much lower, indicating that it is a bit too quick to predict the demise of a character. This could perhaps be improved in future by altering the class weights.</p>
 </section>
 <section id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h2>
@@ -694,10 +770,22 @@ document.write(`
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<p>Data Society. 2016. Requests: Game of Thrones. <a class="reference external" href="https://data.world/data-society/game-of-thrones">https://data.world/data-society/game-of-thrones</a></p>
-<p>Joel Östblom. 2023. DSCI531 Course Notes. <a class="reference external" href="https://pages.github.ubc.ca/MDS-2023-24/DSCI_531_viz-1_students/lectures/4-eda.html">https://pages.github.ubc.ca/MDS-2023-24/DSCI_531_viz-1_students/lectures/4-eda.html</a></p>
-<p>Varada Kolhatkar. 2023. DSCI571 Course Notes . <a class="reference external" href="https://pages.github.ubc.ca/MDS-2023-24/DSCI_571_sup-learn-1_students/lectures/00_motivation-course-information.html">https://pages.github.ubc.ca/MDS-2023-24/DSCI_571_sup-learn-1_students/lectures/00_motivation-course-information.html</a></p>
-<p>Joel Östblom. 2023. DSCI573 Course Notes. <a class="reference external" href="https://pages.github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/README.html">https://pages.github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/README.html</a></p>
+<div class="docutils container" id="id5">
+<dl class="citation">
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id3">Kol23</a></span></dt>
+<dd><p>Varada Kolhatkar. Dsci571 course notes. <a class="reference external" href="https://pages.github.ubc.ca/MDS-2023-24/DSCI_571_sup-learn-1_students/lectures/00_motivation-course-information.html">https://pages.github.ubc.ca/MDS-2023-24/DSCI_571_sup-learn-1_students/lectures/00_motivation-course-information.html</a>, 2023.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id1">DataSociety16</a></span></dt>
+<dd><p>Data Society. Requests: game of thrones. <a class="reference external" href="https://data.world/data-society/game-of-thrones">https://data.world/data-society/game-of-thrones</a>, 2016.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id2">Ost23a</a></span></dt>
+<dd><p>Joel Östblom. Dsci531 course notes. <a class="reference external" href="https://pages.github.ubc.ca/MDS-2023-24/DSCI_531_viz-1_students/lectures/4-eda.html">https://pages.github.ubc.ca/MDS-2023-24/DSCI_531_viz-1_students/lectures/4-eda.html</a>, 2023.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id4">Ost23b</a></span></dt>
+<dd><p>Joel Östblom. Dsci573 course notes. <a class="reference external" href="https://pages.github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/README.html">https://pages.github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/README.html</a>, 2023.</p>
+</dd>
+</dl>
+</div>
 </section>
 </section>
 
