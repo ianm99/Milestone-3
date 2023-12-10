@@ -325,6 +325,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="predicting-character-deaths-in-game-of-thrones">
 <h1>Predicting Character Deaths in Game of Thrones<a class="headerlink" href="#predicting-character-deaths-in-game-of-thrones" title="Permalink to this heading">#</a></h1>
+<p>Authors: Thomas Jian, Ian MacCarthy, Arturo Rey, Sifan Zhang</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -520,15 +521,16 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p><strong>Features descriptions</strong> <br />
-Among those features we picked for further analysis, some are easily understood by the feature names while some others might be hard to read and understand, so descriptions of these features are provided below.</p>
+<p>As a rule of thumb, we usually drop features whose percentage of missing values are over 15/20/25%. This is done because imputing these values, or replacing them with the mean/median/mode, would create bias in our data. Another way to deal with this case, would be to drop all the columns where we have null values in. This is a viable approach when the number of null values are not a big part of the dataset.
+Considering that a couple of features have a great percentage of missing values (&gt; 25%), we have dropped these features from our training and test set in order to not influence our model by adding bias by imputing values.</p>
+<p>Among those features we picked for further analysis, some are easily understood by the feature names while some others might be hard to read and understand, so descriptions of these features are provided below.</p>
 <p>Culture: Social group to which a character belongs <br />
 House: House to which a character belongs <br />
 book1,book2,book3,book4,book5: Whether or not the character is mentioned in the book <br />
 numDeadRelations: Number of dead characters to whom a character is related <br />
 Popularity: popularity score calculated from the number of internal incoming and outgoing
 links to the characters page in the <a class="reference external" href="http://awoiaf.westeros.org">http://awoiaf.westeros.org</a> wiki <br />
-Target:whether or not the character is alive \</p>
+Target:whether or not the character is alive</p>
 <p>Based on the selected features, we created a heatmap <span id="id2">[<a class="reference internal" href="#id7" title="Joel Östblom. Dsci531 course notes. https://pages.github.ubc.ca/MDS-2023-24/DSCI_531_viz-1_students/lectures/4-eda.html, 2023.">Östblom, 2023</a>]</span> to illustrate the correlation of each feature with <strong>isAlive</strong>. None of the correlations, in <a class="reference internal" href="#correlation-map"><span class="std std-numref">Figure 1</span></a>, are particularly strong, but they seem to make sense. There is a notable positive correlation with whether the character is alive in book 4, which makes sense given that a character has no chance of being alive at the end of the series if they aren’t still alive at book 4. There are also notable negative correlations with the character’s popularity and the number of dead realtions the character has, suggesting that popular characters whose families are already depleted tend to survive in the story.</p>
 <figure class="align-default" id="correlation-map">
 <a class="reference internal image-reference" href="_images/correlation_heatmap.png"><img alt="_images/correlation_heatmap.png" src="_images/correlation_heatmap.png" style="height: 500px;" /></a>
@@ -573,7 +575,7 @@ Target:whether or not the character is alive \</p>
       <td>500</td>
       <td>balanced</td>
       <td>0.538</td>
-      <td>0.021</td>
+      <td>0.020</td>
       <td>0.524</td>
     </tr>
     <tr>
@@ -582,7 +584,7 @@ Target:whether or not the character is alive \</p>
       <td>2000</td>
       <td>balanced</td>
       <td>0.537</td>
-      <td>0.026</td>
+      <td>0.023</td>
       <td>0.524</td>
     </tr>
     <tr>
@@ -591,7 +593,7 @@ Target:whether or not the character is alive \</p>
       <td>2000</td>
       <td>balanced</td>
       <td>0.520</td>
-      <td>0.034</td>
+      <td>0.033</td>
       <td>0.529</td>
     </tr>
     <tr>
@@ -600,7 +602,7 @@ Target:whether or not the character is alive \</p>
       <td>2000</td>
       <td>balanced</td>
       <td>0.518</td>
-      <td>0.046</td>
+      <td>0.035</td>
       <td>0.530</td>
     </tr>
     <tr>
@@ -609,7 +611,7 @@ Target:whether or not the character is alive \</p>
       <td>1500</td>
       <td>balanced</td>
       <td>0.518</td>
-      <td>0.048</td>
+      <td>0.034</td>
       <td>0.530</td>
     </tr>
   </tbody>
